@@ -148,7 +148,7 @@ public class TestCollection {
     }
 
     /**
-     * complements the elements TO the required amount
+     * complements the elements to the required amount
      *
      * @param count  required quantity
      * @param addCol collection to add
