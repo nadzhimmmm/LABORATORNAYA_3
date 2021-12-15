@@ -10,26 +10,31 @@ public class Main {
         System.out.println("1)Ввести количество элементов.");
         System.out.println("0)Выход.");
         Scanner in = new Scanner(System.in);
-        int quit;
+        int check=0;
         while (!in.hasNextInt()) {
             System.out.println("Ошибка. Неверный ввод. Введите число.");
             in.next();
         }
-        quit = in.nextInt();
-        while (quit < 0 || quit > 1) {
+        int quit = in.nextInt();
+        while (quit<0||quit>1) {
             System.out.println("Ошибка. Введите число 0 или 1.");
             quit = in.nextInt();
         }
-        while (quit != 0) {
+        while (quit != 0)
+        {
             List<Integer> arrayList = new ArrayList<>();
             List<Integer> linkedList = new LinkedList<>();
             int N;
             while (!in.hasNextInt())
             {
-                System.out.println("Ошибка. Неверный ввод. Введите число.");
+                System.out.println("Ошибка. Неверный ввод. Введите целое число.");
                 in.next();
             }
             N = in.nextInt();
+            while (N<1) {
+                System.out.println("Ошибка. Введите число больше нуля.");
+                N = in.nextInt();
+            }
             System.out.println("|Method         |ArrayList           |LinkedList          | \n" +
                     "|---------------|--------------------|--------------------|");
 
@@ -66,4 +71,6 @@ public class Main {
     private static String printResult(long res1, long res2) {
         return String.format("%20d|%20d|\n|---------------|--------------------|--------------------|", res1, res2);
     }
+
+
 }

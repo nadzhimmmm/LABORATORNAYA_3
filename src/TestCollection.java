@@ -64,12 +64,15 @@ public class TestCollection {
      * @return execution time
      */
     public static long testRemoveCenter(List<Integer> testList, int n) {
-        addTo(n, testList);
-        long start = System.nanoTime();
-        int halfN = n / 2;
-        for (int i = 0; i < n; i++)
-            testList.remove(halfN - i / 2 - 1);
-        return System.nanoTime() - start;
+
+            long start = System.nanoTime();
+            if ( n % 2 != 0 )
+                n = n + 1;
+            addTo(n, testList);
+            int halfN = n / 2;
+            for (int i = 0; i < n; i++)
+                testList.remove(halfN - i / 2 - 1);
+            return System.nanoTime() - start;
     }
 
     /**
@@ -157,4 +160,5 @@ public class TestCollection {
         for (int i = addCol.size(); i < count; i++)
             addCol.add(i);
     }
+
 }
